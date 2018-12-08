@@ -7,7 +7,6 @@ Created on Sat Dec  8 13:03:04 2018
 """
 
 import math
-import numpy
 
 class pointMass:
     '''Class for point masses '''
