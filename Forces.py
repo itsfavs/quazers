@@ -8,7 +8,7 @@ class force:
 
 
 class constantForce (force):
-    ''' Inverse square forcefield '''
+    ''' constant force '''
 
     type = 'constant'
     direction = []
