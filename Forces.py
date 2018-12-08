@@ -21,7 +21,7 @@ class constantForce (force):
 
 
 class invSquareForce (force):
-    ''' Inverse square forcefield '''
+    ''' Inverse square forcefield ''' 
 
     type = 'inverseSquare'
     origin = []
