@@ -1,5 +1,6 @@
 from pointMass import pointMass
 import matplotlib.pyplot as plt
+import mpld3
 import Forces
 from Forces import linearForce
 from VectorMath import vector
@@ -31,7 +32,6 @@ def runSim():
             for singleForce in forces:
                 singleForce.updateForce(mass)
             mass.updateMass(timestep)
-            mass.broadcast()
             currentData.append(mass.visualiseData())
         time += timestep
         data.append(currentData)
@@ -46,3 +46,4 @@ def plotPositions():
     plt.plot([force.origin.toArray()[0] for force in forces if force.type == 'inverseSquare'], [force.origin.toArray()[1] for force in forces if force.type == 'inverseSquare'], "ko")
     plt.legend()
 plotPositions()
+mpld3.show()
