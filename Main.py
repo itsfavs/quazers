@@ -1,7 +1,6 @@
 from pointMass import pointMass
 import matplotlib.pyplot as plt
-import numpy
-from Forces import invSquareForce
+import Forces
 
 plt.figure(figsize = (8,6))
 
@@ -10,11 +9,11 @@ Test what is currently going on
 
 Global Variables
 '''
-timestep = 0.01
-endTime = 3
+timestep = 0.005
+endTime = 1.5
 
-masses = [pointMass('mass 1',[0,0],[2,0.0]), pointMass('mass 2',[0,0],[.1,0.0])]
-forces = [invSquareForce([4.0,4.0], -2),invSquareForce([-5.0,10], -10)]
+masses = [pointMass('mass 1',[0,0],[2,0.0]), pointMass('mass 2',[0,0],[1,0.0])]
+forces = [linearForce([4.0,4.0], -2)]
 data = []
 
 '''
@@ -38,11 +37,10 @@ def runSim():
 runSim()
 
 def plotPositions():
-    #plt.plot([i[1][0] for i in data], [i[1][1] for i in data])
     ''' Plot each mass separately '''
     for i in range(0, len(masses)):
         plt.plot([dataPoint[i][1][0] for dataPoint in data], [dataPoint[i][1][1] for dataPoint in data], label = data[0][i][0] , color = "C" + str(i))
 
-    plt.plot([force.origin[0] for force in forces if force.type == 'inverseSquare'], [force.origin[1] for force in forces if force.type == 'inverseSquare'], "ko")
+    plt.plot([force.origin.toArray()[0] for force in forces if force.type == 'inverseSquare'], [force.origin.toArray()[1] for force in forces if force.type == 'inverseSquare'], "ko")
     plt.legend()
 plotPositions()
