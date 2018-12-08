@@ -1,20 +1,20 @@
 from pointMass import pointMass
 import matplotlib.pyplot as plt
 import numpy
-from Forces import constantForce
+from Forces import invSquareForce
+
+plt.figure(figsize = (8,6))
 
 '''
 Test what is currently going on
-'''
 
-'''
 Global Variables
 '''
-timestep = 0.1
-endTime = 5
+timestep = 0.01
+endTime = 3
 
-masses = [pointMass('mass 1',[0,0],[1.0,0.0])]
-forces = [constantForce([0,1.0])]
+masses = [pointMass('mass 1',[0,0],[2,0.0]), pointMass('mass 2',[0,0],[.1,0.0])]
+forces = [invSquareForce([4.0,4.0], -2),invSquareForce([-5.0,10], -10)]
 data = []
 
 '''
@@ -25,14 +25,24 @@ def runSim():
     print("Beginning sim")
     time = 0
     while (time <= endTime):
+        currentData = []
         for mass in masses:
             for singleForce in forces:
                 singleForce.updateForce(mass)
             mass.updateMass(timestep)
             mass.broadcast()
-            data.append(mass.visualiseData())
+            currentData.append(mass.visualiseData())
         time += timestep
+        data.append(currentData)
 
 runSim()
 
-plt.plot([i[1][0] for i in data], [i[1][1] for i in data])
+def plotPositions():
+    #plt.plot([i[1][0] for i in data], [i[1][1] for i in data])
+    ''' Plot each mass separately '''
+    for i in range(0, len(masses)):
+        plt.plot([dataPoint[i][1][0] for dataPoint in data], [dataPoint[i][1][1] for dataPoint in data], label = data[0][i][0] , color = "C" + str(i))
+
+    plt.plot([force.origin[0] for force in forces if force.type == 'inverseSquare'], [force.origin[1] for force in forces if force.type == 'inverseSquare'], "ko")
+    plt.legend()
+plotPositions()
