@@ -45,4 +45,4 @@ class pointMass:
 
     def addForceContribution(self, force):
         ''' Update the mass acceleration due to a given force contribution '''
-        self.acceleration = self.acceleration + force / self.mass
+        self.acceleration = self.acceleration + force * (1.0 / self.mass)

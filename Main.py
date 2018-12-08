@@ -1,6 +1,8 @@
 from pointMass import pointMass
 import matplotlib.pyplot as plt
 import Forces
+from Forces import linearForce
+from VectorMath import vector
 
 plt.figure(figsize = (8,6))
 
