@@ -12,11 +12,13 @@ class pointMass:
     '''Class for point masses '''
     position = []
     velocity = []
-    mass = 1
+    acceleration = []
+    mass = 1.0
 
     def __init__(self, position, velocity):
         self.position = position
         self.velocity = velocity
+        #self.acceleration = acceleration
         print("Initiated a point mass at ",position," with velocity ", velocity)
 
     def broadcast(self):
@@ -24,4 +26,4 @@ class pointMass:
 
     def update(self, timeStep):
         ''' Update the particle's data after time timeStep '''
-        position = [self.position[i] + self.velocity[i] * timeStep for i in [0,1]]
+        position = [float(self.position[i]) + self.velocity[i] * timeStep for i in range(0,len(self.position))]
