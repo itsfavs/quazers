@@ -63,9 +63,9 @@
      </p>
 
 <p2 style="font-size:20px"><b>Objects</b></p2>
-<form action = "\cgi-bin\Main.py" id = obj1>
 <div id="objects-container" style="height:100px;width:400px;overflow:auto;border:8px solid purple;padding:2%">
-    <button type="submit" value="Submit">RUN</button>
+    <form action = "\cgi-bin\Main.py">
+
 
       <p1 class="big"> Object 1 </p1> <br>
       <p1 class="big"> Position /m: x </p1>
@@ -85,36 +85,38 @@
       <p1 class="big"> Mass /kg: </p1>
       <input type="number" name="Mass1" min="0" max="1000">
       <br>
+      <button type="submit" value="Submit">RUN</button>
+    </form>
     <p id="demo"></p>
 </div>
-</form>
 
 
 <br>
 <button onclick="myFunction()">Add Object</button>
-<input type="button" value="Run" onclick="submitForms()" />
 <script>
   var counter = 2;
 function myFunction() {
   document.getElementById("objects-container").innerHTML += ' \
+  <form> \
     <p1 class="big"> Object ' + counter + ' </p1> <br> \
     <p1 class="big"> Position /m: x </p1> \
-    <input type="number" name="Pos1" min="0" max="100"> \
+    <input type="number" name="Pos"'+ counter + ' min="0" max="100"> \
      <p1> y </p1> \
-    <input type="number" name="Pos1" min="0" max="100"> \
+    <input type="number" name="Pos"'+ counter + ' min="0" max="100"> \
     <p1> z </p1> \
-    <input type="number" name="Pos1" min="0" max="100"> \
+    <input type="number" name="Pos"'+ counter + ' min="0" max="100"> \
     <br>\
     <p1 class="big"> Velocity /(m/s): x </p1>\
-    <input type="number" name="Vel1" min="0" max="100">\
+    <input type="number" name="Vel"'+ counter + ' min="0" max="100">\
     <p1> y </p1>\
-    <input type="number" name="Vel1" min="0" max="100">\
+    <input type="number" name="Vel"'+ counter + ' min="0" max="100">\
     <p1> z </p1>\
-    <input type="number" name="Vel1" min="0" max="100">\
+    <input type="number" name="Vel"'+ counter + ' min="0" max="100">\
     <br>\
     <p1 class="big"> Mass /kg: </p1>\
-    <input type="number" name="Mass1" min="0" max="1000">\
+    <input type="number" name="Mass"'+ counter + ' min="0" max="1000">\
     <br>\
+  </form>\
   <br>\
   ';
   counter = counter + 1;

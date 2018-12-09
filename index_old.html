@@ -9,31 +9,33 @@
         text-align: center;
         color: rgb(250, 250, 250);
       }
+
       h2 {
         text-align: center;
         color: rgb(0, 200, 200);
       }
+
       p {
         text-align: center;
         color: rgb(250, 250, 250);
       }
+
       p1 {
         text-align: center;
         color: rgb(250, 250, 250);
       }
-      p2 {
-        text-align: center;
-        color: rgb(250, 250, 250);
-        color: rgb(0, 200, 200);
-      }
+
       body {
             background-color: rgb(0, 0, 80);
         }
+
+
       img {
         max-width: 100%;
         max-height: 100vh;
         height: auto;
       }
+
       button {
         background-color: rgb(80, 0, 80); /* Green */
         border: none;
@@ -44,9 +46,10 @@
         display: inline-block;
         font-size: 11px;
       }
-      p.big {
-        line-height: 1.8;
-      }
+
+
+
+
     </style>
 
 
@@ -62,64 +65,31 @@
     <p> Welcome to QuaZar! This website... <br> In order to get started, all you need to do is to input integer values to all the empty slots below. The possible range for velocity and position values is 0 to 100, and for mass it is 1 to 1000.
      </p>
 
-<p2 style="font-size:20px"><b>Objects</b></p2>
-<form action = "\cgi-bin\Main.py" id = obj1>
-<div id="objects-container" style="height:100px;width:400px;overflow:auto;border:8px solid purple;padding:2%">
-    <button type="submit" value="Submit">RUN</button>
 
-      <p1 class="big"> Object 1 </p1> <br>
-      <p1 class="big"> Position /m: x </p1>
+    <form action = "\cgi-bin\Main.py">
+      <p1> Object 1 </p1> <br>
+      <p1> Position /m: x </p1>
       <input type="number" name="Pos1" min="0" max="100">
-       <p1> y </p1>
+      <p1> y </p1>
       <input type="number" name="Pos1" min="0" max="100">
       <p1> z </p1>
       <input type="number" name="Pos1" min="0" max="100">
+      <button type="button">Add dimention</button>
       <br>
-      <p1 class="big"> Velocity /(m/s): x </p1>
+      <p1> Velocity /(m/s): x </p1>
       <input type="number" name="Vel1" min="0" max="100">
       <p1> y </p1>
       <input type="number" name="Vel1" min="0" max="100">
       <p1> z </p1>
       <input type="number" name="Vel1" min="0" max="100">
       <br>
-      <p1 class="big"> Mass /kg: </p1>
+      <p1> Mass /kg: </p1>
       <input type="number" name="Mass1" min="0" max="1000">
       <br>
-    <p id="demo"></p>
-</div>
-</form>
+      <button type="submit" value="Submit">RUN</button>
+    </form>
 
-
-<br>
-<button onclick="myFunction()">Add Object</button>
-<input type="button" value="Run" onclick="submitForms()" />
-<script>
-  var counter = 2;
-function myFunction() {
-  document.getElementById("objects-container").innerHTML += ' \
-    <p1 class="big"> Object ' + counter + ' </p1> <br> \
-    <p1 class="big"> Position /m: x </p1> \
-    <input type="number" name="Pos1" min="0" max="100"> \
-     <p1> y </p1> \
-    <input type="number" name="Pos1" min="0" max="100"> \
-    <p1> z </p1> \
-    <input type="number" name="Pos1" min="0" max="100"> \
-    <br>\
-    <p1 class="big"> Velocity /(m/s): x </p1>\
-    <input type="number" name="Vel1" min="0" max="100">\
-    <p1> y </p1>\
-    <input type="number" name="Vel1" min="0" max="100">\
-    <p1> z </p1>\
-    <input type="number" name="Vel1" min="0" max="100">\
-    <br>\
-    <p1 class="big"> Mass /kg: </p1>\
-    <input type="number" name="Mass1" min="0" max="1000">\
-    <br>\
-  <br>\
-  ';
-  counter = counter + 1;
-}
-</script>
+    <button type="button">Add object</button>
 
     <p>Copyright ©2018 QuaZar. All rights reserved.</p>
 
