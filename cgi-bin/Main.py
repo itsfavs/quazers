@@ -13,6 +13,7 @@ print ("Content-type:text/html\r\n\r\n")
 print("<p> sfvfdbjyjrtshtrdjytjtnd </p>")
 
 plt.figure(figsize = (8,6))
+fig, ax = plt.subplots()
 
 '''
 Test what is currently going on
@@ -48,10 +49,10 @@ runSim()
 def plotPositions():
     ''' Plot each mass separately '''
     for i in range(0, len(masses)):
-        plt.plot([dataPoint[i][1][0] for dataPoint in data], [dataPoint[i][1][1] for dataPoint in data], label = data[0][i][0] , color = "C" + str(i))
+        ax.plot([dataPoint[i][1][0] for dataPoint in data], [dataPoint[i][1][1] for dataPoint in data], label = data[0][i][0] , color = "C" + str(i))
 
-    plt.plot([force.origin.toArray()[0] for force in forces if force.type == 'inverseSquare'], [force.origin.toArray()[1] for force in forces if force.type == 'inverseSquare'], "ko")
-    plt.legend()
+    ax.plot([force.origin.toArray()[0] for force in forces if force.type == 'inverseSquare'], [force.origin.toArray()[1] for force in forces if force.type == 'inverseSquare'], "ko")
+    ax.legend()
 plotPositions()
-html = mpld3.fig_to_html()
-print html
+html = mpld3.fig_to_html(fig)
+print(html)
