@@ -11,6 +11,8 @@ import cgi
 import cgitb
 '''HTML header '''
 
+#cgi.test()
+
 header = '''
 <!DOCTYPE html>
 

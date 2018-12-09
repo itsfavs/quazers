@@ -105,44 +105,16 @@
 
 <br>
 <button type = button onclick="myFunction()">Add Object</button>
-<script>
-  var counter = 2;
-function myFunction() {
-  document.getElementById("objects-container").innerHTML += ' \
-    <p1 class="big"> Object ' + counter + ' </p1> <br> \
-    <p1 class="big"> Position /m: x </p1> \
-    <input type="number" name="Pos1" min="0" max="100" value="0"> \
-     <p1> y </p1> \
-    <input type="number" name="Pos1" min="0" max="100" value="0"> \
-    <p1> z </p1> \
-    <input type="number" name="Pos1" min="0" max="100" value="0"> \
-    <br>\
-    <p1 class="big"> Velocity /(m/s): x </p1>\
-    <input type="number" name="Vel1" min="0" max="100" value="0">\
-    <p1> y </p1>\
-    <input type="number" name="Vel1" min="0" max="100" value="0">\
-    <p1> z </p1>\
-    <input type="number" name="Vel1" min="0" max="100" value="0">\
-    <br>\
-    <p1 class="big"> Mass /kg: </p1>\
-    <input type="number" name="Mass1" min="0" max="1000" value="1">\
-    <br>\
-  <br>\
-  ';
-  counter = counter + 1;
-}
-</script>
 </div>
 
 <br>
 <br>
 <div align="center">
-<p2 style="font-size:20px"> <b>Force type:<b></p2> <br>
-<p1>
-        <input type="radio" name=«forceClass» value=«constant force» checked> Constant force<br>
-        <input type="radio" name=«forceClass» value=«inverse square force»> Inverse square force<br>
-        <input type="radio" name=«forceClass» value=«spring force»> Spring force <br>
-</p1> </div>
+<div align="center" id = forceContainer style="height:100px;width:400px;overflow:auto;border:8px solid purple;padding:2%">
+        <p2 style="font-size:20px"> <b>Forces<b></p2> <br>
+  <button type = button onclick="addForceBox()">Add Force</button>
+</div>
+</div>
 
 
     <div align="center">
@@ -150,6 +122,57 @@ function myFunction() {
       <input type = "image" name="KineticEnergy" value="True" src="KinEnergy.jpg" title="Graph kinetic energy" style="width:250px;height:250px;">
       <input type = "image" src="Momentum.jpg" name="Momentum" value="True" title="Graph momentum" style="width:250px;height:250px;">
     </div>
+
+    <script>
+      var counter = 2;
+      var funcCounter = 1;
+    function myFunction() {
+      document.getElementById("objects-container").innerHTML += ' \
+        <p1 class="big"> Object ' + counter + ' </p1> <br> \
+        <p1 class="big"> Position /m: x </p1> \
+        <input type="number" name="Pos1" min="0" max="100" value="0"> \
+         <p1> y </p1> \
+        <input type="number" name="Pos1" min="0" max="100" value="0"> \
+        <p1> z </p1> \
+        <input type="number" name="Pos1" min="0" max="100" value="0"> \
+        <br>\
+        <p1 class="big"> Velocity /(m/s): x </p1>\
+        <input type="number" name="Vel1" min="0" max="100" value="0">\
+        <p1> y </p1>\
+        <input type="number" name="Vel1" min="0" max="100" value="0">\
+        <p1> z </p1>\
+        <input type="number" name="Vel1" min="0" max="100" value="0">\
+        <br>\
+        <p1 class="big"> Mass /kg: </p1>\
+        <input type="number" name="Mass1" min="0" max="1000" value="1">\
+        <br>\
+      <br>\
+      ';
+      counter = counter + 1;
+    }
+
+    function addForceBox() {
+      document.getElementById("forceContainer").innerHTML += '\
+              <p1 class="big"> Force ' + funcCounter + ' </p1> <br> \
+      <p1>\
+              <input type="radio" name="forceClass" value="Constant" checked> Constant force<br>\
+              <input type="radio" name="forceClass" value="InvSquare"> Inverse square force<br>\
+              <input type="radio" name="forceClass" value="Linear"> Spring force <br>\
+      </p1> \
+      <p1 class="big"> Origin: x </p1>\
+      <input type="number" name="Orig" min="0" max="100" value="5">\
+      <p1> y </p1>\
+      <input type="number" name="Orig" min="0" max="100" value="5">\
+      <p1> z </p1>\
+      <input type="number" name="Orig" min="0" max="100" value="0">\
+      <br>\
+      <p1 class="big"> Coefficient </p1>\
+      <input type="number" name="Coeff" min="0" max="1000" value="1">\
+      <br>\
+      '
+      funcCounter += 1
+    }
+    </script>
 </form>
 
 <div align="center">
