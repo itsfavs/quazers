@@ -19,7 +19,7 @@ class pointMass:
     nameTag = ''
     attachedField = None
 
-    def __init__(self, name, position, velocity,mass = 1.0, attachedField = None):
+    def __init__(self, name, position, velocity, mass = 1.0, attachedField = None):
         self.position = vector(position)
         self.velocity = vector(velocity)
         self.acceleration = vector([0 for i in range(0,len(position))])
