@@ -14,6 +14,7 @@ print ("Content-type:text/html\r\n\r\n")
 '''Do form analysis here'''
 
 
+
 form = cgi.FieldStorage()
 value = form.getlist("Pos1")
 pos = [float(i) for i in value]
@@ -113,8 +114,12 @@ def plotVelocities():
     ax.set_ylabel("Y axis")
     ax.legend()
 
-#plotPositions()
-#plotEnergies()
-plotVelocities()
+''' Figure out what to graph based on form submission '''
+if (len(form.getlist("GraphPosition.x")) > 0):
+    plotPositions()
+elif (len(form.getlist("KineticEnergy.x")) > 0):
+    plotEnergies()
+else:
+    plotVelocities()
 print(mpld3.fig_to_html(fig))
 print("<a href = ..\\> Go Back </a>")
