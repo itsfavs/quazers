@@ -64,28 +64,39 @@
      </p>
 
 <div align="center">
-<p2 style="font-size:20px"><b>Objects</b></p2>
+
 <form action = "\cgi-bin\Main.py" id = obj1>
+
+  <p2 style="font-size:20px"><b>Parameters</b></p2>
+  <br>
+  <p1 class="big"> Simulation Length </p1>
+  <input type="number" name="Length" min="0" max="100" value="1.5" step = any>
+  <p1> Time Step </p1>
+  <input type="number" name="TimeStep" min="0" max="1" value="0.01" step = any>
+  <br>
+  <br>
+  <p2 style="font-size:20px"><b>Objects</b></p2>
+
 <div id="objects-container" style="height:100px;width:400px;overflow:auto;border:8px solid purple;padding:2%">
 
 
       <p1 class="big"> Object 1 </p1> <br>
       <p1 class="big"> Position /m: x </p1>
-      <input type="number" name="Pos1" min="0" max="100">
+      <input type="number" name="Pos1" min="0" max="100" value="0">
        <p1> y </p1>
-      <input type="number" name="Pos1" min="0" max="100">
+      <input type="number" name="Pos1" min="0" max="100" value="0">
       <p1> z </p1>
-      <input type="number" name="Pos1" min="0" max="100">
+      <input type="number" name="Pos1" min="0" max="100" value="0">
       <br>
       <p1 class="big"> Velocity /(m/s): x </p1>
-      <input type="number" name="Vel1" min="0" max="100">
+      <input type="number" name="Vel1" min="0" max="100" value="0">
       <p1> y </p1>
-      <input type="number" name="Vel1" min="0" max="100">
+      <input type="number" name="Vel1" min="0" max="100" value="0">
       <p1> z </p1>
-      <input type="number" name="Vel1" min="0" max="100">
+      <input type="number" name="Vel1" min="0" max="100" value="0">
       <br>
       <p1 class="big"> Mass /kg: </p1>
-      <input type="number" name="Mass1" min="0" max="1000">
+      <input type="number" name="Mass1" min="0" max="1000" value="1">
       <br>
     <p id="demo"></p>
 </div>
@@ -93,28 +104,28 @@
 
 
 <br>
-<button onclick="myFunction()">Add Object</button>
+<button type = button onclick="myFunction()">Add Object</button>
 <script>
   var counter = 2;
 function myFunction() {
   document.getElementById("objects-container").innerHTML += ' \
     <p1 class="big"> Object ' + counter + ' </p1> <br> \
     <p1 class="big"> Position /m: x </p1> \
-    <input type="number" name="Pos1" min="0" max="100"> \
+    <input type="number" name="Pos1" min="0" max="100" value="0"> \
      <p1> y </p1> \
-    <input type="number" name="Pos1" min="0" max="100"> \
+    <input type="number" name="Pos1" min="0" max="100" value="0"> \
     <p1> z </p1> \
-    <input type="number" name="Pos1" min="0" max="100"> \
+    <input type="number" name="Pos1" min="0" max="100" value="0"> \
     <br>\
     <p1 class="big"> Velocity /(m/s): x </p1>\
-    <input type="number" name="Vel1" min="0" max="100">\
+    <input type="number" name="Vel1" min="0" max="100" value="0">\
     <p1> y </p1>\
-    <input type="number" name="Vel1" min="0" max="100">\
+    <input type="number" name="Vel1" min="0" max="100" value="0">\
     <p1> z </p1>\
-    <input type="number" name="Vel1" min="0" max="100">\
+    <input type="number" name="Vel1" min="0" max="100" value="0">\
     <br>\
     <p1 class="big"> Mass /kg: </p1>\
-    <input type="number" name="Mass1" min="0" max="1000">\
+    <input type="number" name="Mass1" min="0" max="1000" value="1">\
     <br>\
   <br>\
   ';
@@ -142,7 +153,7 @@ function myFunction() {
 </form>
 
 <div align="center">
-  <img src=”giphy.gif” alt=”Cats”  style="width:250px;height:250px;">
+  <img src=”./giphy.gif” alt=”Cats”  style="width:250px;height:250px;">
 </div>
 
 

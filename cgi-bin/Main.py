@@ -9,6 +9,71 @@ from VectorMath import vector
 
 import cgi
 import cgitb
+'''HTML header '''
+
+header = '''
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> QuaZar </title>
+    <style media="screen">
+      h1 {
+        text-align: center;
+        color: rgb(250, 250, 250);
+      }
+      h2 {
+        text-align: center;
+        color: rgb(0, 200, 200);
+      }
+      p {
+        text-align: center;
+        color: rgb(250, 250, 250);
+      }
+      p1 {
+        text-align: center;
+        color: rgb(250, 250, 250);
+      }
+      p2 {
+        text-align: center;
+        color: rgb(250, 250, 250);
+        color: rgb(0, 200, 200);
+      }
+      body {
+            background-color: rgb(0, 0, 80);
+        }
+      img {
+        max-width: 100%;
+        max-height: 100vh;
+        height: auto;
+      }
+      button {
+        background-color: rgb(80, 0, 80); /* Green */
+        border: none;
+        color: white;
+        padding: 8px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 11px;
+      }
+      p.big {
+        line-height: 1.8;
+      }
+
+    </style>
+
+
+  </head>
+  <body>
+
+    <img src="QuaZar2.jpg" alt="">
+
+    <marquee> <h2>The ultimate physics simulator!</h2> </marquee>
+
+'''
+
 cgitb.enable(logdir="./logs.txt")
 print ("Content-type:text/html\r\n\r\n")
 '''Do form analysis here'''
@@ -29,7 +94,7 @@ mass = [float(i) for i in value]
 current = 1
 massData = [[[pos[i], pos[i + 1], pos[i + 2]],[vel[i], vel[i + 1], vel[i + 2]],mass[i]] for i in range(0,len(mass))]
 
-print("<p>: ", massData)
+#print("<p>: ", massData)
 '''
 while(len(form.getlist("Pos" + str(current))) > 0):
     thisMass = []
@@ -58,8 +123,8 @@ Test what is currently going on
 
 Global Variables
 '''
-timestep = 0.005
-endTime = 1.5
+timestep = float(form.getfirst("TimeStep"))
+endTime = float(form.getfirst("Length"))
 
 masses = [pointMass('mass '+str(i),massData[i][0],massData[i][1], massData[i][2]) for i in range(0,len(massData))]
 forces = [invSquareForce([4.0,4.0,0.0], -2)]
@@ -123,3 +188,11 @@ else:
     plotVelocities()
 print(mpld3.fig_to_html(fig))
 print("<a href = ..\\> Go Back </a>")
+
+end = '''
+    <p>Copyright ©2018 QuaZar. All rights reserved.</p>
+  </body>
+</html>
+'''
+
+print(end)
