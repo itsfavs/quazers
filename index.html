@@ -48,7 +48,6 @@
         line-height: 1.8;
       }
 
-
     </style>
 
 
@@ -57,15 +56,16 @@
 
     <img src="QuaZar2.jpg" alt="">
 
-    <marquee behavior="alternate"> <h2>The ultimate physics simulator!</h2> </marquee>
+    <marquee> <h2>The ultimate physics simulator!</h2> </marquee>
+
 
 
     <p> Welcome to QuaZar! <br> Are you an undergrad in desperate need of visualising concepts? Or a postgrad in need of data visualisation? You might have 20 years of experience, <br> or you might have never seen a physics formula before. It does not matter. Regardless of background knowledge, everyone can get something out of QuaZar. <br> For level 0 users we can recommend having a look at the adorable kittens playing with a newtons cradle. For all other users you simply start by inputting <br>  known values in the menu on the left side. Once you have finished you run the simulation by choosing one of the buttons on the right side.
      </p>
 
-<div align="center">
 
-<form action = "\cgi-bin\Main.py" id = obj1 method = post>
+<form action = "\cgi-bin\Main.py" id = obj1>
+<div align="center">
 
   <p2 style="font-size:20px"><b>Parameters</b></p2>
   <br>
@@ -110,37 +110,8 @@
 <br>
 <br>
 <div align="center">
-<div align="center" id = forceContainer style="height:100px;width:400px;overflow:auto;border:8px solid purple;padding:2%">
-        <p2 style="font-size:20px"> <b>Forces<b></p2> <br>
-          <p1 class="big"> Force 1 </p1> <br>
-          <select name = ForceType>
-          <option value="InvSquare">Inverse square force</option>
-          <option value="Const">Constant force</option>
-          <option value="Linear">Linear force</option>
-        </select>
-        <br>
-  <p1 class="big"> Origin: x </p1>
-  <input type="number" name="Orig" min="0" max="100" value="5">
-  <p1> y </p1>
-  <input type="number" name="Orig" min="0" max="100" value="5">
-  <p1> z </p1>
-  <input type="number" name="Orig" min="0" max="100" value="0">
-  <br>
-
-  <p1 class="big"> Force 2 </p1> <br>
-  <select name = ForceType>
-  <option value="InvSquare">Inverse square force</option>
-  <option value="Const">Constant force</option>
-  <option value="Linear">Linear force</option>
-</select>
-<br>
-<p1 class="big"> Origin: x </p1>
-<input type="number" name="Orig" min="0" max="100" value="5">
-<p1> y </p1>
-<input type="number" name="Orig" min="0" max="100" value="5">
-<p1> z </p1>
-<input type="number" name="Orig" min="0" max="100" value="0">
-<br>
+<div align="center" id = "forceContainer" style="height:100px;width:400px;overflow:auto;border:8px solid purple;padding:2%">
+        <p2 style="font-size:20px"> <b>Forces</b></p2> <br>
 
 </div>
 <br>
@@ -153,10 +124,11 @@
       <input type = "image" name="KineticEnergy" value="True" src="KinEnergy.jpg" title="Graph kinetic energy" style="width:250px;height:250px;">
       <input type = "image" src="Momentum.jpg" name="Momentum" value="True" title="Graph momentum" style="width:250px;height:250px;">
     </div>
+</form>
 
     <script>
       var counter = 2;
-      var funcCounter = 3;
+      var funcCounter = 1;
     function myFunction() {
       document.getElementById("objects-container").innerHTML += ' \
         <p1 class="big"> Object ' + counter + ' </p1> <br> \
@@ -184,27 +156,28 @@
 
     function addForceBox() {
       document.getElementById("forceContainer").innerHTML += '\
-              <p1 class="big"> Force ' + funcCounter + ' </p1> <br> \
-              <select name = ForceType>\
-              <option value="InvSquare">Inverse square force</option>\
-              <option value="Const">Constant force</option>\
-              <option value="Linear">Linear force</option>\
-            </select>\
-      <p1 class="big"> Origin: x </p1>\
-      <input type="number" name="Orig" min="0" max="100" value="5">\
-      <p1> y </p1>\
-      <input type="number" name="Orig" min="0" max="100" value="5">\
-      <p1> z </p1>\
-      <input type="number" name="Orig" min="0" max="100" value="0">\
+      <p1 class="big"> Force ' + funcCounter + ' </p1> <br> \
+      <select name = ForceType>\
+      <option value="InvSquare">Inverse square force</option>\
+      <option value="Const">Constant force</option>\
+      <option value="Linear">Linear force</option>\
+      </select>\
       <br>\
-      <p1 class="big"> Coefficient </p1>\
-      <input type="number" name="Coeff" min="0" max="1000" value="1">\
+      <p1 class="big"> Origin: <br> x </p1>\
+      <input type="number" name="Orig" value="5"> <br>\
+      <p1> y </p1>\
+      <input type="number" name="Orig" value="5"> <br>\
+      <p1> z </p1>\
+      <input type="number" name="Orig" value="0"> <br>\
+      <br>\
+      <p1> Coefficient </p1>\
+      <input type="number" name="Coeff" value="1"> <br>\
+      <br>\
       <br>\
       ';
-      funcCounter += 1;
+      funcCounter = funcCounter + 1;
     }
     </script>
-</form>
 
 <div align="center">
   <img src="https://media1.tenor.com/images/b2bed7b9011c04f4ef60fa5e199dadcd/tenor.gif?itemid=3484979" width="546" height="307.6056338028169" alt="Physics! GIF - Cats Kittens Play GIFs" style="max-width: 546px; background-color: rgb(137, 126, 120);">
@@ -218,11 +191,9 @@
     </audio>
 </div>
 
-<div align="center">
-  <br>
-  <p1> Copyright ©2018 QuaZar. All rights reserved.</p1>
-</div>
 
+
+<p>Copyright ©2018 QuaZar. All rights reserved.</p>
 
 
 

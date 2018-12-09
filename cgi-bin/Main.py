@@ -5,11 +5,14 @@ import mpld3
 import Forces
 from Forces import linearForce
 from Forces import invSquareForce
+from Forces import constantForce
 from VectorMath import vector
 
 import cgi
 import cgitb
 '''HTML header '''
+
+#cgi.test()
 
 header = '''
 <!DOCTYPE html>
@@ -90,10 +93,14 @@ vel = [float(i) for i in value]
 value = form.getlist("Mass1")
 mass = [float(i) for i in value]
 
+orig = [float(i) for i in form.getlist("Orig")]
+coeff = [float(i) for i in form.getlist("Coeff")]
+types = form.getlist("ForceType")
+
 
 current = 1
 massData = [[[pos[i], pos[i + 1], pos[i + 2]],[vel[i], vel[i + 1], vel[i + 2]],mass[i]] for i in range(0,len(mass))]
-
+forceData = [[types[i],coeff[i],[orig[i], orig[i + 1], orig[i + 2]]]for i in range(0,len(types))]
 #print("<p>: ", massData)
 '''
 while(len(form.getlist("Pos" + str(current))) > 0):
@@ -127,7 +134,16 @@ timestep = float(form.getfirst("TimeStep"))
 endTime = float(form.getfirst("Length"))
 
 masses = [pointMass('mass '+str(i),massData[i][0],massData[i][1], massData[i][2]) for i in range(0,len(massData))]
-forces = [invSquareForce([4.0,4.0,0.0], -2)]
+forces = []
+
+
+for element in forceData:
+    if (element[0] == "InvSquare"):
+        forces.append(invSquareForce(element[2],element[1]))
+    elif (element[0] == "Linear"):
+        forces.append(linearForce(element[2],element[1]))
+    else:
+        forces.append(constantForce(element[2]))
 data = []
 
 '''
