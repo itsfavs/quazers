@@ -49,6 +49,7 @@
 
 
 
+
     </style>
 
 
@@ -65,25 +66,27 @@
      </p>
 
 
-    <form>
+    <form action = "\cgi-bin\Main.py">
       <p1> Object 1 </p1> <br>
       <p1> Position /m: x </p1>
-      <input type="number" name="quantity" min="0" max="100">
+      <input type="number" name="Pos1" min="0" max="100">
       <p1> y </p1>
-      <input type="number" name="quantity" min="0" max="100">
+      <input type="number" name="Pos1" min="0" max="100">
       <p1> z </p1>
-      <input type="number" name="quantity" min="0" max="100">
+      <input type="number" name="Pos1" min="0" max="100">
       <button type="button">Add dimention</button>
       <br>
       <p1> Velocity /(m/s): x </p1>
-      <input type="number" name="quantity" min="0" max="100">
+      <input type="number" name="Vel1" min="0" max="100">
       <p1> y </p1>
-      <input type="number" name="quantity" min="0" max="100">
+      <input type="number" name="Vel1" min="0" max="100">
       <p1> z </p1>
-      <input type="number" name="quantity" min="0" max="100">
+      <input type="number" name="Vel1" min="0" max="100">
       <br>
       <p1> Mass /kg: </p1>
-      <input type="number" name="quantity" min="0" max="1000">
+      <input type="number" name="Mass1" min="0" max="1000">
+      <br>
+      <button type="submit" value="Submit">RUN</button>
     </form>
 
     <button type="button">Add object</button>

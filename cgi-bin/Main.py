@@ -4,13 +4,30 @@ import matplotlib.pyplot as plt
 import mpld3
 import Forces
 from Forces import linearForce
+from Forces import invSquareForce
 from VectorMath import vector
 
 import cgi
 import cgitb
 cgitb.enable()
 print ("Content-type:text/html\r\n\r\n")
-print("<p> sfvfdbjyjrtshtrdjytjtnd </p>")
+'''Do form analysis here'''
+
+form = cgi.FieldStorage()
+value = form.getlist("Pos1")
+pos1 = [float(i) for i in value]
+print("<p>Position:", pos1)
+
+value = form.getlist("Vel1")
+vel1 = [float(i) for i in value]
+print("<p>Velocity:", vel1)
+
+pos1 = [pos1[0],pos1[1]]
+vel1 = [vel1[0],vel1[1]]
+
+''' Run the simulation '''
+
+
 
 plt.figure(figsize = (8,6))
 fig, ax = plt.subplots()
@@ -23,8 +40,8 @@ Global Variables
 timestep = 0.005
 endTime = 1.5
 
-masses = [pointMass('mass 1',[0,0],[2,0.0]), pointMass('mass 2',[0,0],[1,0.0])]
-forces = [linearForce([4.0,4.0], -2)]
+masses = [pointMass('mass 1',pos1,vel1)]
+forces = [invSquareForce([4.0,4.0], -2)]
 data = []
 
 '''
@@ -56,3 +73,4 @@ def plotPositions():
 plotPositions()
 html = mpld3.fig_to_html(fig)
 print(html)
+print("<a href = ..\\> Go Back </a>")
