@@ -61,7 +61,7 @@ timestep = 0.005
 endTime = 1.5
 
 masses = [pointMass('mass '+str(i),massData[i][0],massData[i][1], massData[i][2]) for i in range(0,len(massData))]
-forces = [invSquareForce([4.0,4.0,1.0], -2)]
+forces = [invSquareForce([4.0,4.0,0.0], -2)]
 data = []
 
 '''
@@ -87,9 +87,9 @@ def plotPositions():
     ''' Plot each mass separately '''
 
     for i in range(0, len(masses)):
-        ax.plot([dataPoint[i][1][0] for dataPoint in data], [dataPoint[i][1][1] for dataPoint in data], [dataPoint[i][1][2] for dataPoint in data], label = data[0][i][0] , color = "C" + str(i))
+        ax.plot([dataPoint[i][1][0] for dataPoint in data], [dataPoint[i][1][1] for dataPoint in data], label = data[0][i][0] , color = "C" + str(i))
 
-    ax.plot([force.origin.toArray()[0] for force in forces if force.type == 'inverseSquare'], [force.origin.toArray()[1] for force in forces if force.type == 'inverseSquare'],[force.origin.toArray()[2] for force in forces if force.type == 'inverseSquare'], "ko")
+    ax.plot([force.origin.toArray()[0] for force in forces if force.type == 'inverseSquare'], [force.origin.toArray()[1] for force in forces if force.type == 'inverseSquare'], "ko")
     ax.legend()
 
 plotPositions()
