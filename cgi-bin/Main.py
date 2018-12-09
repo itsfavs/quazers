@@ -1,9 +1,16 @@
+#!C:\Program Files (x86)\Python37-32\python.exe -u
 from pointMass import pointMass
 import matplotlib.pyplot as plt
 import mpld3
 import Forces
 from Forces import linearForce
 from VectorMath import vector
+
+import cgi
+import cgitb
+cgitb.enable()
+print ("Content-type:text/html\r\n\r\n")
+print("<p> sfvfdbjyjrtshtrdjytjtnd </p>")
 
 plt.figure(figsize = (8,6))
 
@@ -24,7 +31,7 @@ Run a loop to update parameters
 '''
 
 def runSim():
-    print("Beginning sim")
+    #print("Beginning sim")
     time = 0
     while (time <= endTime):
         currentData = []
@@ -46,4 +53,5 @@ def plotPositions():
     plt.plot([force.origin.toArray()[0] for force in forces if force.type == 'inverseSquare'], [force.origin.toArray()[1] for force in forces if force.type == 'inverseSquare'], "ko")
     plt.legend()
 plotPositions()
-mpld3.show()
+html = mpld3.fig_to_html()
+print html

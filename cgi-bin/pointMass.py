@@ -26,7 +26,7 @@ class pointMass:
         self.nameTag = name
         self.attachedField = attachedField
         #self.acceleration = acceleration
-        print("Initiated a point mass at ",position," with velocity ", velocity)
+        #print("Initiated a point mass at ",position," with velocity ", velocity)
 
     def broadcast(self):
         ''' Print out a debug message style dataline '''
