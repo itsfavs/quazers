@@ -82,16 +82,40 @@ def runSim():
         data.append(currentData)
 
 runSim()
+'''Each graph type has a separate draw method'''
 
 def plotPositions():
     ''' Plot each mass separately '''
 
     for i in range(0, len(masses)):
         ax.plot([dataPoint[i][1][0] for dataPoint in data], [dataPoint[i][1][1] for dataPoint in data], label = data[0][i][0] , color = "C" + str(i))
-
     ax.plot([force.origin.toArray()[0] for force in forces if force.type == 'inverseSquare'], [force.origin.toArray()[1] for force in forces if force.type == 'inverseSquare'], "ko")
+    ax.set_title("Trajectories")
+    ax.set_xlabel("X axis")
+    ax.set_ylabel("Y axis")
     ax.legend()
 
-plotPositions()
+def plotEnergies():
+    for i in range(0, len(masses)):
+        ax.plot([0.5 * masses[i].mass * sum([component ** 2 for component in dataPoint[i][1]]) for dataPoint in data], [timestep * i for i in range(0,len(data))], label = data[0][i][0] , color = "C" + str(i))
+        ax.set_title("Energies")
+        ax.set_xlabel("Time")
+        ax.set_ylabel("Energy")
+    ax.legend()
+
+def plotVelocities():
+    ''' Plot each mass separately '''
+
+    for i in range(0, len(masses)):
+        ax.plot([dataPoint[i][2][0] for dataPoint in data], [dataPoint[i][2][1] for dataPoint in data], label = data[0][i][0] , color = "C" + str(i))
+    ax.plot([force.origin.toArray()[0] for force in forces if force.type == 'inverseSquare'], [force.origin.toArray()[1] for force in forces if force.type == 'inverseSquare'], "ko")
+    ax.set_title("Velocities")
+    ax.set_xlabel("X axis")
+    ax.set_ylabel("Y axis")
+    ax.legend()
+
+#plotPositions()
+#plotEnergies()
+plotVelocities()
 print(mpld3.fig_to_html(fig))
 print("<a href = ..\\> Go Back </a>")
