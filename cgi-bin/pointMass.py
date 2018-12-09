@@ -19,14 +19,14 @@ class pointMass:
     nameTag = ''
     attachedField = None
 
-    def __init__(self, name, position, velocity, attachedField = None):
+    def __init__(self, name, position, velocity, mass = 1.0, attachedField = None):
         self.position = vector(position)
         self.velocity = vector(velocity)
         self.acceleration = vector([0 for i in range(0,len(position))])
         self.nameTag = name
         self.attachedField = attachedField
         #self.acceleration = acceleration
-        print("Initiated a point mass at ",position," with velocity ", velocity)
+        #print("Initiated a point mass at ",position," with velocity ", velocity)
 
     def broadcast(self):
         ''' Print out a debug message style dataline '''
