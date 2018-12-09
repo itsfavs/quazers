@@ -108,7 +108,6 @@ def plotVelocities():
 
     for i in range(0, len(masses)):
         ax.plot([dataPoint[i][2][0] for dataPoint in data], [dataPoint[i][2][1] for dataPoint in data], label = data[0][i][0] , color = "C" + str(i))
-    ax.plot([force.origin.toArray()[0] for force in forces if force.type == 'inverseSquare'], [force.origin.toArray()[1] for force in forces if force.type == 'inverseSquare'], "ko")
     ax.set_title("Velocities")
     ax.set_xlabel("X axis")
     ax.set_ylabel("Y axis")
